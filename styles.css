@@ -1,0 +1,112 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+  font-family: helvetica, sans-serif;
+  height: 100vh;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #3a3a3a;
+}
+
+/* Header and Navigation */
+header {
+  /* background: rgba(0, 0, 0, 0.5);Semi-transparent black background */
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 80px; /* Fixed header height */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; /* Ensures that the nav takes up full height of the header */
+}
+
+.logo img {
+  margin-left: 10px; /* Adjust based on your design */
+  height: 300px;
+  margin-top: 20px; /* Adjust based on your logo size */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  margin-right: 100px; /*Adjust based on your design*/
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: #3a3a3a;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 105, 0, 0.7);
+  border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  padding: 70px;
+  height: 100vh;
+  text-align: left;
+  margin-left: 10px; /* Adjust based on your design */
+}
+
+.main-content h1 {
+  font-size: 50px;
+  margin-bottom: 2px;
+}
+.main-content h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: #FF5733;
+  font-style: italic;
+}
+
+.main-content p {
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.main-content button {
+  margin-top: 25px;
+  width: 150px;
+  padding: 10px;
+  background-color: #556bd8;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.main-content button:hover {
+  background-color: #4456c1;
+  
+}

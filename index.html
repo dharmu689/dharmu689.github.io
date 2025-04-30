@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Website with Navigation</title>
   <link rel="stylesheet" href="styles.css">
- 
 </head>
+
 <body>
   <header>
     <nav>
       <div class="logo">
         <img src="LOGO.png" alt="Logo">
       </div>
-      <ul class="nav-links">
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+      <ul class="nav-links" id="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#">Our Products</a></li>
         <li><a href="#">About Us</a></li>
@@ -25,11 +29,44 @@
 
   <div class="main-content">
     <h1>WEBSITE IS</h1>
-    <h2> UNDER CONSTRUCTION </h2>    
+    <h2>UNDER CONSTRUCTION</h2>
     <p>We are working hard to bring something amazing.</p>
-    <P> Stay tuned for updates and exciting features coming your way soon!</p>
-    <button onclick="alertComingSoon()">Get Started</button>
+    <p>Stay tuned for updates and exciting features coming your way soon!</p>
+
+
+    <!-- Existing Get Started Button -->
+    <button onclick="openForm()">Get Started</button>
+
+    <!-- Hidden Inquiry Form Modal -->
+    <div id="inquiryForm" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="closeForm()">×</span>
+
+        <form id="firstForm">
+          <h2>Tell us your Query</h2>
+          <textarea name="message" placeholder="Type your message here..." required></textarea>
+          <button type="button" onclick="showSecondForm()">Next</button>
+        </form>
+
+        <form id="secondForm" action="https://formsubmit.co/dharmu6669777@gmail.com" method="POST"
+          style="display: none;">
+          <input type="hidden" name="message" id="hiddenMessage">
+
+          <h2>Your Details</h2>
+          <input type="text" name="name" placeholder="Enter your Name" required>
+          <input type="email" name="email" placeholder="Enter your Email" required>
+
+          <!-- Optional: redirect after submit -->
+          <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
   </div>
+
+
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -8,7 +8,7 @@
 /* Body and Background */
 body {
   font-family: helvetica, sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
@@ -17,41 +17,42 @@ body {
 
 /* Header and Navigation */
 header {
-  /* background: rgba(0, 0, 0, 0.5);Semi-transparent black background */
   padding: 20px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
-  height: 80px; /* Fixed header height */
+  height: 80px;
+  background: rgba(255, 255, 255, 0.9); /* Light background */
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%; /* Ensures that the nav takes up full height of the header */
+  height: 100%;
+  padding: 0 20px;
 }
 
 .logo img {
-  margin-left: 10px; /* Adjust based on your design */
-  height: 300px;
-  margin-top: 20px; /* Adjust based on your logo size */
+  height: 60px;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Navigation Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 14px;
-  margin-right: 100px; /*Adjust based on your design*/
+  gap: 20px;
 }
 
-.nav-links li {
-  display: inline;
-}
-
-.nav-links a {
+.nav-links li a {
   color: #3a3a3a;
   text-decoration: none;
   font-size: 14px;
@@ -60,7 +61,7 @@ nav {
   transition: background-color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links li a:hover {
   background-color: rgba(255, 105, 0, 0.7);
   border-radius: 5px;
 }
@@ -69,31 +70,29 @@ nav {
 .main-content {
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: flex-start;
   flex-direction: column;
-  padding: 70px;
-  height: 100vh;
+  padding: 120px 20px 20px 20px;
+  min-height: 100vh;
   text-align: left;
-  margin-left: 10px; /* Adjust based on your design */
+  margin-left: 20px;
 }
 
 .main-content h1 {
   font-size: 50px;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 }
 .main-content h2 {
   font-size: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-weight: 100;
   color: #FF5733;
   font-style: italic;
 }
-
 .main-content p {
   margin-top: 5px;
   font-size: 18px;
 }
-
 .main-content button {
   margin-top: 25px;
   width: 150px;
@@ -105,8 +104,89 @@ nav {
   font-size: 16px;
   cursor: pointer;
 }
-
 .main-content button:hover {
   background-color: #4456c1;
-  
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    text-align: right;
+    padding: 20px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .main-content {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+/* Modal popup */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 10000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.6); 
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content textarea,
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #556bd8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 25px;
+  cursor: pointer;
 }
